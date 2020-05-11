@@ -3,6 +3,8 @@ package subcmd
 import (
 	"fmt"
 	"os"
+
+	"github.com/vim-jp/slacklog-generator/subcmd/fetchmessages"
 )
 
 func Run() error {
@@ -28,6 +30,8 @@ func Run() error {
 		return DownloadFiles(args)
 	case "generate-html":
 		return GenerateHTML(args)
+	case "fetch-messages":
+		return fetchmessages.Run(args)
 	}
 
 	return fmt.Errorf("unknown subcmd: %s", subCmdName)
